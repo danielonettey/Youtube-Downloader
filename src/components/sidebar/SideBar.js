@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Outlet, useNavigate } from "react-router";
 
 import Logo from '../../assets/dantubeLogo.png';
+import LoginButton from "../LoginButton";
 
 const SideBar = () => {
     const [searchText, setSearchText] = useState('')
@@ -15,7 +16,8 @@ const SideBar = () => {
 
             {/* Top Bar  */}
             <div className="bg-white fixed h-16 px-3 w-full z-40">
-                <div className="p-2  text-black  absolute top-2 left-2 flex space-x-1 " >
+                {/* Logo | Menu */}
+                <div className="p-2  text-black  absolute top-3 md:top-1 left-2 flex space-x-1 " >
                     <button onClick={() => setSideBar(!sideBar)}>
                         <MenuIcon className="w-6" />
                     </button>
@@ -23,12 +25,19 @@ const SideBar = () => {
                         <img src={Logo} className='w-24 hidden md:block' />
                     </button>
                 </div>
+
+                {/* Search Bar  */}
                 <div className="w-full h-full flex justify-center items-center">
-                    <input className="p-2 rounded-l border focus:outline-none w-3/5" type={'text'} placeholder='Search'
+                    <input className="p-2 rounded-l border focus:outline-none w-3/5 md:w-2/5" type={'text'} placeholder='Search'
                         onChange={(e) => setSearchText(e.target.value)} />
                     <button className="rounded-r border p-2 bg-gray-100">
                         <SearchIcon className="w-6 " />
                     </button>
+                </div>
+
+                {/* Login | Logout Button  */}
+                <div className="p-2  text-black  absolute top-3 md:top-1 right-2 flex space-x-1 " >
+                    <LoginButton />
                 </div>
             </div>
 

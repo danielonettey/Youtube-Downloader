@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom";
 import SideBar from "./components/sidebar/SideBar";
 import Dashboard from "./pages/Dashboard";
 import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
 import SearchPage from "./pages/SearchPage";
 import ViewPage from "./pages/ViewPage";
 
@@ -18,7 +19,7 @@ const AppRoutes = () => {
           element: <SearchPage />
         },
         {
-          path: "view",
+          path: "view/:videoId",
           element: <ViewPage />
         },
       
@@ -27,8 +28,8 @@ const AppRoutes = () => {
 
     
     {
-      path: "search",
-      element: <SearchPage />
+      path: "login",
+      element: <LoginPage />
     },
     {
       path: "view",
