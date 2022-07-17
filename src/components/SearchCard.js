@@ -6,7 +6,7 @@ const SearchCard = ({ title, duration, image, views, date, channelName, channelI
     let navigate = useNavigate()
     return (
         <div>
-            <button className='mb-5 cursor-pointer grid grid-cols-5 gap-4 text-left' onClick={() => navigate('/view')}>
+            <button className='mb-5 cursor-pointer grid grid-cols-5 gap-2 md:gap-4 text-left' onClick={() => navigate('/view')}>
                 {/* Image  */}
                 <div className='relative col-span-2'>
                     <img src={image} className='w-full' />
@@ -19,27 +19,27 @@ const SearchCard = ({ title, duration, image, views, date, channelName, channelI
                 <div className='col-span-3'>
                     {/* Title  */}
                     <div className=''>
-                        <p className='text-black text-xl font-medium '>
+                        <p className='text-black text-[12px] leading-4 line-clamp-2 md:text-xl font-medium '>
                             {title}
                         </p>
 
                         {/* Views  */}
-                        <div className='flex pt-1 items-center text-xs space-x-2'>
+                        <div className='flex md:pt-1 items-center text-[10px] md:text-xs space-x-1 md:space-x-2'>
                             <p>{views} views</p>
                             <div className='w-1 h-1 rounded-full bg-[#606060]'></div>
                             <p>{date} ago</p>
                         </div>
 
                         {/* Channel Info  */}
-                        <div className='text-xs py-3 text-[#606060] flex space-x-0.5 items-center'>
-                            <img src={channelIcon} className='w-9' />
+                        <div className='text-[10px] md:text-sm md:py-3 text-[#606060] flex space-x-0.5 items-center'>
+                            <img src={channelIcon} className='w-6 md:w-9' />
                             <p className='hover:text-black font-medium'>
                                 {channelName}
                             </p>
                         </div>
 
                         {/* Video description */}
-                        <div>
+                        <div className='hidden md:block'>
                             <p className='text-sm whitespace-nowrap w-full truncate '>
                                 Sarah is the Lead Negotiator at Levels.fyi. Her goal is to help people make better career decisions and negotiate a salary they deserve. She's a former tech recruiter at Amazon, Facebook, and Google.
                                 Check out Levels: https://www.levels.fyi/

@@ -7,7 +7,7 @@ import SearchCard from '../components/SearchCard'
 
 const SearchPage = () => {
     return (
-        <div className='px-20 pb-3  min-h-screen'>
+        <div className='px-5 md:px-20 pb-3  min-h-screen'>
 
             {/* Filters  */}
             <div className=' border-b border-gray-400 mb-5 py-2 flex items-end space-x-1 cursor-pointer text-[#606060] hover:text-black '>
