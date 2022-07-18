@@ -5,9 +5,11 @@ import { Outlet, useNavigate } from "react-router";
 
 import Logo from '../../assets/dantubeLogo.png';
 import LoginButton from "../LoginButton";
+import LogoutButton from "../LogoutButton";
 
 const SideBar = () => {
     const [searchText, setSearchText] = useState('')
+    const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem('token'))
     const [sideBar, setSideBar] = useState(false)
 
     let navigate = useNavigate()
@@ -36,8 +38,9 @@ const SideBar = () => {
                 </div>
 
                 {/* Login | Logout Button  */}
+                {/* // TODO: Solidify the login flow and state */}
                 <div className="p-2  text-black  absolute top-3 md:top-1 right-2 flex space-x-1 " >
-                    <LoginButton />
+                    {loggedIn != null ? <LogoutButton/> : <LoginButton />}
                 </div>
             </div>
 

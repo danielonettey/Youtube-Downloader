@@ -137,6 +137,12 @@ const ViewPage = () => {
 
             {/* Other Videos  */}
             <div className='pr-5 px-3'>
+                <div>
+                    <p className='font-medium py-5 md:pt-2'>
+                        Recommended Videos
+                    </p>
+                </div>
+                
                 <SideCard title={'The Reds Win Down Under 🇦🇺 | Man Utd 4-1 Melbourne Victory | Highlights'} duration={'10:02'}
                     image={SampleImage} views={'119K'} date={'3 hours'} channelName={'Manchester United'} />
                 <SideCard title={'The Reds Win Down Under 🇦🇺 | Man Utd 4-1 Melbourne Victory | Highlights'} duration={'10:02'}

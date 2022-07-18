@@ -195,7 +195,7 @@
             "link_to_audio": "https://www.boomplay.com/songs/910194"
         }
     ],
-    "search": {
+    "youtubeVideos": {
         "kind": "youtube#searchListResponse",
         "etag": "mNwib1AQsrPPyRgZuvJShl_S12g",
         "nextPageToken": "CAoQAA",

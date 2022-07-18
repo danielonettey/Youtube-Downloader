@@ -6,7 +6,7 @@ import { request, requestOffline } from '../utils/axios-utils';
 const fetchYouTubeSearchData = ({ queryKey }) => {
     const contentID = queryKey[1];
 
-    return requestOffline({url: '/search'})
+    return requestOffline({url: '/youtubeVideos'})
 }
 
 const useYouTubeSearchData = (search) => {
