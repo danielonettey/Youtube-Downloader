@@ -7,7 +7,6 @@ import SideCard from '../components/SideCard'
 import SampleImage from '../assets/images/hq720.webp'
 import { useParams } from 'react-router-dom'
 import { useQueryClient } from 'react-query'
-import useYouTubeViewData from '../hooks/useYouTubeViewData'
 import { Oval } from 'react-loader-spinner'
 
 
@@ -17,27 +16,13 @@ const ViewPage = () => {
     const [showLess, setShowLess] = useState(false)
     const [title, setTitle] = useState('The Reds Win Down Under 🇦🇺 | Man Utd 4-1 Melbourne Victory | Highlights')
 
-    const { videoId } = useParams()
+    const { videoId, searchTerm } = useParams()
 
     const queryClient = useQueryClient();
-    const video = queryClient.getQueryData(['searchData', 'man u'])?.data.items.find((video) => video.id.videoId === videoId)
 
-
-    // const { isLoading, hero } = useYouTubeViewData(videoId);
-
-    // if (isLoading) {
-    //     return <div className=' w-full flex justify-center min-h-screen'>
-    //         <Oval
-    //             ariaLabel="loading-indicator"
-    //             height={50}
-    //             width={50}
-    //             strokeWidth={1}
-    //             strokeWidthSecondary={2000}
-    //             color="blue"
-    //             secondaryColor="red"
-    //         />
-    //     </div>
-    // }
+    // Get Video 
+    const video = searchTerm ? queryClient.getQueryData(['searchData', searchTerm])?.data.items.find((video) => video.id.videoId === videoId)
+        : queryClient.getQueryData(['downloadedVideos'])?.data.items.find((video) => video.id.videoId === videoId)
 
 
     return (
@@ -142,7 +127,7 @@ const ViewPage = () => {
                         Recommended Videos
                     </p>
                 </div>
-                
+
                 <SideCard title={'The Reds Win Down Under 🇦🇺 | Man Utd 4-1 Melbourne Victory | Highlights'} duration={'10:02'}
                     image={SampleImage} views={'119K'} date={'3 hours'} channelName={'Manchester United'} />
                 <SideCard title={'The Reds Win Down Under 🇦🇺 | Man Utd 4-1 Melbourne Victory | Highlights'} duration={'10:02'}

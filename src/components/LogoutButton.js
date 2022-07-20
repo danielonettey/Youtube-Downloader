@@ -1,16 +1,8 @@
 import React, { useState } from 'react'
-import { googleLogout } from '@react-oauth/google'
 import { useNavigate } from 'react-router-dom'
 
-const LogoutButton = () => {
+const LogoutButton = ({logout}) => {
     const [showDropDown, setShowDropDown] = useState(false)
-
-    // TODO: Solidify the logout flow and state
-    const logout = () => {
-        googleLogout();
-        sessionStorage.clear();
-        
-    }
 
     return (
         <div className='relative' onMouseOver={() => setShowDropDown(true)} onMouseLeave={() => setShowDropDown(false)}>

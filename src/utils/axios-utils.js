@@ -18,7 +18,6 @@ export const requestOffline = ({ ...options }) => {
 
 export const request = ({ ...options }) => {
     const client = axios.create({ baseURL: "https://youtube.googleapis.com/youtube/v3" })
-
     client.defaults.headers.common.Authorization = `Bearer ${sessionStorage.getItem('token')}`
     client.defaults.method = 'GET'
     const onSuccess = (response) => response;

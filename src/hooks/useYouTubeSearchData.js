@@ -4,13 +4,13 @@ import { request, requestOffline } from '../utils/axios-utils';
 
 
 const fetchYouTubeSearchData = ({ queryKey }) => {
-    const contentID = queryKey[1];
+    const searchText = queryKey[1];
 
-    return requestOffline({url: '/youtubeVideos'})
+    return request({url: `/search?part=snippet&maxResults=10&q=${searchText}&type=video&key=${process.env.REACT_APP_DANTUBE_API_KEY}`})
 }
 
-const useYouTubeSearchData = (search) => {
-  return useQuery(['searchData', search], fetchYouTubeSearchData, {
+const useYouTubeSearchData = (searchText) => {
+  return useQuery(['searchData', searchText], fetchYouTubeSearchData, {
     cacheTime: 5 * 60 * 1000,
     staleTime: 5 * 60 * 1000,
 })

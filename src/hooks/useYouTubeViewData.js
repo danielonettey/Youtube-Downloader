@@ -16,7 +16,7 @@ const useYouTubeViewData = (videoId) => {
         cacheTime: 5 * 60 * 1000,
         staleTime: 5 * 60 * 1000,
         initialData: () => {
-            const hero = queryClient.getQueryData(['searchData', 'man u'])?.data
+            const hero = queryClient.getQueryData(['downloadedVideos'])?.data
             .items.find((video) => video.id.videoId ===videoId)
 
             if(hero){
@@ -25,7 +25,6 @@ const useYouTubeViewData = (videoId) => {
                 return undefined
             }
         }
-        
     })
 }
 

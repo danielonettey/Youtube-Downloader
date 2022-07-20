@@ -1,19 +1,9 @@
 import React from 'react'
-import { useGoogleLogin } from '@react-oauth/google'
+
 import { UserCircleIcon } from '@heroicons/react/solid';
 
-const LoginButton = () => {
-    // TODO: Solidify the login flow and state
-    const login = useGoogleLogin({
-        onSuccess: (tokenResponse) => {
-            console.log(tokenResponse);
-            sessionStorage.setItem('token', tokenResponse.access_token);
-
-        },
-        onError: error => console.log(error),
-
-        scope: 'https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.readonly'
-    });
+const LoginButton = ({login}) => {
+    
 
     return (
         <button className='rounded border border-primary py-2 px-3 text-sm text-primary font-medium flex items-center space-x-1' onClick={login}>

@@ -2,11 +2,13 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-const SearchCard = ({ title, duration, videoId, image, views, date, channelName, channelIcon, description }) => {
+const SearchCard = ({ title, duration, searchTerm, videoId, image, views, date, channelName, channelIcon, description }) => {
     let navigate = useNavigate()
+    
     return (
         <div>
-            <button className='mb-5 cursor-pointer grid grid-cols-5 gap-2 md:gap-4 text-left' onClick={() => navigate(`/view/${videoId}`)}>
+            <button className='mb-5 w-full cursor-pointer grid grid-cols-5 gap-2 md:gap-4 text-left' 
+            onClick={() => navigate(`/view/${searchTerm}/${videoId}`)}>
                 {/* Image  */}
                 <div className='relative col-span-2'>
                     <img src={image} className='w-full h-auto' />

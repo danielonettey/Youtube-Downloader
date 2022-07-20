@@ -15,11 +15,15 @@ const AppRoutes = () => {
       children: [
         { path: "/", element: <HomePage /> },
         {
-          path: "search",
+          path: "search/:searchTerm",
           element: <SearchPage />
         },
         {
           path: "view/:videoId",
+          element: <ViewPage />
+        },
+        {
+          path: "view/:searchTerm/:videoId",
           element: <ViewPage />
         },
       

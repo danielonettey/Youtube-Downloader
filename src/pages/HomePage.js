@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom'
 import SideBar from '../components/sidebar/SideBar'
 import HomeCard from '../components/HomeCard'
 import { Oval } from 'react-loader-spinner'
-import useYouTubeSearchData from '../hooks/useYouTubeSearchData'
+import useDownloadedVideosData from '../hooks/useDownloadedVideosData'
 
 const HomePage = () => {
-    const { isLoading, data } = useYouTubeSearchData('man u');
+    const { isLoading, data, isError } = useDownloadedVideosData();
 
     if (isLoading) {
         return <div className=' w-full flex justify-center min-h-screen'>
