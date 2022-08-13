@@ -27,7 +27,7 @@ const HomePage = () => {
     return (
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-5 pb-20 px-5'>
             {
-                data?.data.items.map((result) => (
+                data?.data?.items.map((result) => (
                     <HomeCard key={result.etag} videoId={result.id.videoId} title={result.snippet.title} duration={'10:02'}
                         image={result.snippet.thumbnails.medium.url} views={'119K'} date={result.snippet.publishedAt} channelName={result.snippet.channelTitle} channelIcon={ChannelIcon}/>
                 ))
