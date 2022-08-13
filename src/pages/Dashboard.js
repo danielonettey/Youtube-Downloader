@@ -1,46 +1,69 @@
-import { MenuIcon } from "@heroicons/react/solid";
+import { CheckCircleIcon, DownloadIcon } from "@heroicons/react/outline";
 import React from "react";
+import { DownloadItem } from "../components/Downloader";
+import useFileDownloader from "../hooks/useFileDownloader";
+
+
+const files = [
+    {
+        name: "Photo 1",
+        thumb:
+            "https://images.unsplash.com/photo-1604263439201-171fb8c0fddc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=427&q=80 427w",
+        file:
+            "https://images.unsplash.com/photo-1604263439201-171fb8c0fddc?rnd=" +
+            Math.random(),
+        filename: "photo-1.jpg",
+    },
+    {
+        name: "Photo 2",
+        thumb:
+            "https://images.unsplash.com/photo-1604164388977-1b6250ef26f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=80 401w",
+        // file:
+        //     "https://images.unsplash.com/photo-1604164388977-1b6250ef26f3?rnd=" +
+        //     Math.random(),
+        filename: "photo-2.jpg",
+    },
+    {
+        name: "Photo 3",
+        thumb:
+            "https://images.unsplash.com/photo-1604264849633-67b1ea2ce0a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80 750w",
+        file:
+            "a" +
+            Math.random(),
+        filename: "photo-3.jpg",
+    },
+];
+
 
 const Dashboard = () => {
+
+    const [downloadFile, downloaderComponentUI] = useFileDownloader();
+
+    const download = (file) => downloadFile(file);
+
     return (
-        <div id="view" className="h-full w-screen flex flex-row">
-            <button className="p-2 border-2 bg-white rounded-md border-gray-200 shadow-lg text-gray-500 focus:bg-teal-500 focus:outline-none focus:text-white absolute top-0 left-0 sm:hidden">
-                <MenuIcon className="w-6" />
-            </button>
+        <div className="relative w-full h-screen">
+            <div className="pt-20 text-center">
+                <h2>File Downloader with progress bar in react</h2>
+                <div className="grid grid-cols-3 mt-20">
+                    {files.map((file, idx) => (
+                        <div>
+                            <div className="text-center" key={idx}>
+                                <img className="w-3/4 mx-auto" src={file.thumb} />
+                                <h5 className="card-title">{file.name}</h5>
 
-            <div className="bg-white fixed md:block shadow-xl px-3 w-full overflow-x-hidden transition-transform duration-300 ease-in-out">
-                <div className="space-y-6 md:space-y-10 mt-10">
-                    <h1 className="font-bold text-4xl text-center md:hidden">
-                        D<span className="text-teal-600">.</span>
-                    </h1>
-                    <h1 className="hidden md:block font-bold text-sm md:text-xl text-center">
-                        Dashwind<span className="text-teal-600">.</span>
-                    </h1>
-                    
+                                <button className="flex items-center mx-auto" onClick={() => download(file)}>
+                                    <p>Download</p>
+                                    <DownloadIcon className="w-6 text-black" />
+                                </button>
 
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
 
-
-            <div className="bg-white fixed h-screen md:block shadow-xl px-3 w-30 md:w-60 lg:w-60 overflow-x-hidden transition-transform duration-300 ease-in-out">
-                <div className="space-y-6 md:space-y-10 mt-10">
-                    <h1 className="font-bold text-4xl text-center md:hidden">
-                        D<span className="text-teal-600">.</span>
-                    </h1>
-                    <h1 className="hidden md:block font-bold text-sm md:text-xl text-center">
-                        Dashwind<span className="text-teal-600">.</span>
-                    </h1>
-                    
-
-                </div>
-            </div>
-
-            
-
-
-            <div className="pl-30 md:pl-60 lg:pl-60 w-full h-[900px] bg-primary">
-                ow okay then this is really cool asdn sa nskdjn sakjdn ksajndk asjndk jsand ksjndk jsan d
-            </div>
+            {downloaderComponentUI}
         </div>
     );
 };
